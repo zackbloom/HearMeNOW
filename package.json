@@ -1,0 +1,18 @@
+{
+  "name": "hear-me-now",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "coffee-script": "^1.12.4",
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-replace": "^0.5.4",
+    "underscore": "^1.8.3"
+  }
+}
