@@ -32,11 +32,17 @@ gulp.task 'commands', ->
 
   for command in commands
     do (command) ->
-      gulp.src(['./template/**/*'])
+      gulp.src(['./template/**/*.wflow', './template/**/*.plist'])
         .pipe replace(/ACTION/g, asAction command.char)
         .pipe replace(/COMMAND/g, command.command)
         .pipe replace(/HOME/g, home)
         .pipe gulp.dest(home + "/Library/Speech/Speakable Items/#{ command.command }.app/")
+
+      gulp.src(['./template/Contents/MacOS/Application Stub'])
+        .pipe gulp.dest(home + "/Library/Speech/Speakable Items/#{ command.command }.app/Contents/MacOS/")
+
+      gulp.src(['./template/Contents/Resources/**/*'])
+        .pipe gulp.dest(home + "/Library/Speech/Speakable Items/#{ command.command }.app/Contents/Resources/")
 
 gulp.task 'watch', ->
   gulp.watch [
